@@ -55,10 +55,14 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        rays: {
+          to: { left: 'calc(100% + 8px)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        rays: 'rays 0.5s 0.3s ease-in-out',
       },
     },
   },

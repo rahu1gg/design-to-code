@@ -11,18 +11,18 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
+import { Route as XNitishkmrkRayButtonImport } from './routes/x/nitishkmrk-ray-button'
 
 // Create/Update Routes
 
-const AboutRoute = AboutImport.update({
-  path: '/about',
+const IndexRoute = IndexImport.update({
+  path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const IndexRoute = IndexImport.update({
-  path: '/',
+const XNitishkmrkRayButtonRoute = XNitishkmrkRayButtonImport.update({
+  path: '/x/nitishkmrk-ray-button',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -37,11 +37,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutImport
+    '/x/nitishkmrk-ray-button': {
+      id: '/x/nitishkmrk-ray-button'
+      path: '/x/nitishkmrk-ray-button'
+      fullPath: '/x/nitishkmrk-ray-button'
+      preLoaderRoute: typeof XNitishkmrkRayButtonImport
       parentRoute: typeof rootRoute
     }
   }
@@ -49,7 +49,10 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({ IndexRoute, AboutRoute })
+export const routeTree = rootRoute.addChildren({
+  IndexRoute,
+  XNitishkmrkRayButtonRoute,
+})
 
 /* prettier-ignore-end */
 
@@ -60,14 +63,14 @@ export const routeTree = rootRoute.addChildren({ IndexRoute, AboutRoute })
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about"
+        "/x/nitishkmrk-ray-button"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/about": {
-      "filePath": "about.tsx"
+    "/x/nitishkmrk-ray-button": {
+      "filePath": "x/nitishkmrk-ray-button.tsx"
     }
   }
 }
